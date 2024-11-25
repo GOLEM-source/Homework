@@ -1,0 +1,59 @@
+CREATE SCHEMA IF NOT EXISTS zaprosi;
+USE zaprosi;
+CREATE TABLE if not exists client(
+IdClient INT PRIMARY KEY auto_increment,
+PassportData varchar(45),
+Surname varchar(45),
+Name varchar(45),
+Patronomyc varchar(45),
+Address varchar(45),
+Telephone varchar(45),
+NumberOfInsurance varchar(45),
+constraint fkContract foreign key(IdContract) references Contract(IdContract)
+);
+
+CREATE TABLE IF NOT EXISTS Contract(
+IdContract int primary key auto_increment,
+IdClinet int,
+Amount int,
+DateOfConclusion DATETIME,
+InsuranceAmount Int,
+TypeOfInsurance varchar(45),
+TarrifRate varchar(45)
+); 
+
+CREATE TABLE IF NOT EXISTS Branches(
+NameOfBranch varchar(45) primary key,
+Address varchar(45),
+Telephone varchar(45)
+);
+
+CREATE TABLE IF NOT EXISTS InsuranceAgent(
+IdAgent int primary key auto_increment,
+Surname varchar(45),
+Name varchar(45),
+Patronomyc varchar(45),
+Address varchar(45),
+Telephone varchar(45),
+Salary int,
+IdManager int
+);
+
+CREATE TABLE IF NOT EXISTS Manager(
+IdManager int primary key auto_increment,
+Surname varchar(45),
+Name varchar(45),
+Patronomyc varchar(45),
+Address varchar(45),
+Telephone varchar(45),
+Salary int
+);
+
+primary key(IdFilm, IdGenre),
+constraint fkFilms foreign key(IdFilm) references films(IdFilm),
+constraint fkGenre foreign key (IdGenre) references genres(IdGenres)
+
+
+
+
+
